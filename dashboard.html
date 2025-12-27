@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dashboard | EduWebinars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body { font-family:'Segoe UI'; background:#f0f5fb; margin:0; }
+
+header {
+    background:#3a7ca5; color:white; text-align:center; padding:20px;
+    border-bottom:4px solid #2f6690; border-radius:0 0 18px 18px;
+}
+
+nav {
+    background:#2f6690; text-align:center; padding:12px;
+}
+
+nav a {
+    color:white; text-decoration:none; font-weight:bold;
+    padding:10px 18px; border-radius:8px; margin:2px; display:inline-block;
+}
+
+nav a:hover { background:white; color:#2f6690; }
+
+.container { max-width:900px; margin:30px auto; padding:0 18px; }
+
+.card {
+    background:white; padding:20px; border-radius:12px;
+    border:1px solid #e3e6ea;
+    margin-bottom:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+}
+
+h2 { color:#2f6690; }
+hr { border:0; border-bottom:1px solid #ddd; margin:14px 0; }
+
+input {
+    width:100%; padding:10px; border-radius:8px; border:1px solid #ccd9e3;
+    margin-top:6px; box-sizing:border-box;
+}
+
+button {
+    background:#3a7ca5; color:white; padding:8px 14px; border:none;
+    border-radius:8px; cursor:pointer; font-weight:bold; margin-top:12px;
+}
+
+button:hover { background:#2f6690; }
+
+ul { line-height:1.8; }
+</style>
+</head>
+
+<body>
+
+<header><h1>Your Dashboard</h1></header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="webinars.html">Webinars</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Logout</a>
+</nav>
+
+<div class="container">
+
+<!-- PROFILE -->
+<div class="card">
+    <h2>Your Profile</h2>
+    <p><b>Logged in as:</b> <span id="profileUser"></span></p>
+</div>
+
+<!-- REGISTRATION DETAILS -->
+<div class="card">
+    <h2>Latest Registration</h2>
+    <p><b>Name:</b> <span id="rname">-</span></p>
+    <p><b>Email:</b> <span id="remail">-</span></p>
+    <p><b>Event:</b> <span id="revent">-</span></p>
+</div>
+
+<!-- WEBINAR -->
+<div class="card">
+    <h2>Latest Webinar Registration</h2>
+    <p><b>Webinar:</b> <span id="wtitle">-</span></p>
+    <p><b>Time:</b> <span id="wtime">-</span></p>
+</div>
+
+<!-- WORKSHOP -->
+<div class="card">
+    <h2>Latest Workshop Registration</h2>
+    <p><b>Workshop:</b> <span id="wwork">-</span></p>
+    <p><b>Time:</b> <span id="wwtime">-</span></p>
+</div>
+
+<!-- PAYMENT SECTION (B + C MIX) -->
+<div class="card">
+    <h2>Pay Fee for Your Events</h2>
+    <p>Select what you want to pay for:</p>
+
+    <div id="paymentArea"></div>
+
+    <hr>
+
+    <h3>Saved Bills</h3>
+    <ul id="billList">No bills yet.</ul>
+</div>
+
+</div>
+
+<script>
+document.getElementById("profileUser").innerText = localStorage.getItem("loggedUser");
+
+// REGISTRATION
+document.getElementById("rname").innerText = localStorage.getItem("regName") || "-";
+document.getElementById("remail").innerText = localStorage.getItem("regEmail") || "-";
+document.getElementById("revent").innerText = localStorage.getItem("regEvent") || "-";
+
+// WEBINAR
+document.getElementById("wtitle").innerText = localStorage.getItem("latestWebinar") || "-";
+document.getElementById("wtime").innerText = localStorage.getItem("latestWebinarTime") || "-";
+
+// WORKSHOP
+document.getElementById("wwork").innerText = localStorage.getItem("latestWorkshop") || "-";
+document.getElementById("wwtime").innerText = localStorage.getItem("latestWorkshopTime") || "-";
+
+// PAYMENT SECTION
+let payHTML = "";
+
+let course = localStorage.getItem("regEvent");
+let webinar = localStorage.getItem("latestWebinar");
+let workshop = localStorage.getItem("latestWorkshop");
+
+// FIXED PRICES
+const prices = {
+    course: 500,
+    webinar: 200,
+    workshop: 300
+};
+
+// COURSE PAYMENT
+if (course) {
+    payHTML += `
+    <div class='card'>
+        <h3>Course: ${course}</h3>
+        <p>Price per session: ₹${prices.course}</p>
+        <label>Sessions:</label>
+        <input id="courseQty" type="number" min="1">
+        <button onclick="calcFee('course', '${course}')">Calculate</button>
+    </div>
+    `;
+}
+
+// WEBINAR PAYMENT
+if (webinar) {
+    payHTML += `
+    <div class='card'>
+        <h3>Webinar: ${webinar}</h3>
+        <p>Price: ₹${prices.webinar}</p>
+        <label>Quantity:</label>
+        <input id="webQty" type="number" min="1">
+        <button onclick="calcFee('webinar', '${webinar}')">Calculate</button>
+    </div>
+    `;
+}
+
+// WORKSHOP PAYMENT
+if (workshop) {
+    payHTML += `
+    <div class='card'>
+        <h3>Workshop: ${workshop}</h3>
+        <p>Price: ₹${prices.workshop}</p>
+        <label>Quantity:</label>
+        <input id="workQty" type="number" min="1">
+        <button onclick="calcFee('workshop', '${workshop}')">Calculate</button>
+    </div>
+    `;
+}
+
+document.getElementById("paymentArea").innerHTML = payHTML;
+
+// ARRAY FOR BILLS
+let bills = JSON.parse(localStorage.getItem("bills") || "[]");
+showBills();
+
+function calcFee(type, title) {
+    let qty = 0;
+
+    if (type === "course") qty = document.getElementById("courseQty").value;
+    if (type === "webinar") qty = document.getElementById("webQty").value;
+    if (type === "workshop") qty = document.getElementById("workQty").value;
+
+    if (!qty || qty <= 0) {
+        alert("Enter valid quantity!");
+        return;
+    }
+
+    let total = prices[type] * qty;
+
+    bills.push({
+        item: title,
+        qty: qty,
+        amount: total
+    });
+
+    localStorage.setItem("bills", JSON.stringify(bills));
+    alert("Bill Saved! Total: ₹" + total);
+    showBills();
+}
+
+function showBills() {
+    let list = document.getElementById("billList");
+    if (bills.length === 0) {
+        list.innerHTML = "No bills yet.";
+        return;
+    }
+    list.innerHTML = "";
+    for (let b of bills) {
+        list.innerHTML += `<li>${b.item} — Qty: ${b.qty} — ₹${b.amount}</li>`;
+    }
+}
+</script>
+
+</body>
+</html>

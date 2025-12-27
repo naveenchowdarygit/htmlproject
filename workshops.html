@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Workshops | EduWebinars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body { font-family:'Segoe UI',Arial; background:#f0f5fb; margin:0; color:#1f2d3d; }
+
+    header {
+        background:#3a7ca5;
+        color:white;
+        text-align:center;
+        padding:20px;
+        border-bottom:4px solid #2f6690;
+        border-radius:0 0 18px 18px;
+        position:relative;
+    }
+
+    header img {
+        height:65px;
+        position:absolute;
+        left:20px;
+        top:50%;
+        transform:translateY(-50%);
+        border-radius:8px;
+    }
+
+    nav {
+        background:#2f6690;
+        text-align:center;
+        padding:12px;
+    }
+
+    nav a {
+        text-decoration:none;
+        color:white;
+        padding:10px 18px;
+        font-weight:bold;
+        display:inline-block;
+        border-radius:8px;
+        margin:2px;
+    }
+
+    nav a:hover {
+        background:white; color:#2f6690;
+    }
+
+    .wrap { max-width:900px; margin:30px auto; padding:0 18px; }
+
+    .card {
+        background:white;
+        border:1px solid #e3e6ea;
+        border-radius:12px;
+        padding:20px;
+        margin-bottom:18px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    button {
+        background:#3a7ca5;
+        color:white;
+        border:none;
+        padding:8px 14px;
+        border-radius:8px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+
+    button:hover {
+        background:#2f6690;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="KL Logo">
+    <h1>EduWebinars — Workshops</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="webinars.html">Webinars</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="wrap">
+
+    <div class="card">
+        <h2 style="color:#2f6690;">Web Development Bootcamp</h2>
+        <p><b>Instructor:</b> Rahul Sharma</p>
+        <p><b>Duration:</b> 4 Days</p>
+        <p><b>Level:</b> Beginner to Intermediate</p>
+        <button onclick="registerWorkshop('Web Development Bootcamp')">Register</button>
+    </div>
+
+    <div class="card">
+        <h2 style="color:#2f6690;">Data Science Foundations</h2>
+        <p><b>Instructor:</b> Anjali Mehra</p>
+        <p><b>Duration:</b> 3 Days</p>
+        <p><b>Level:</b> Beginner</p>
+        <button onclick="registerWorkshop('Data Science Foundations')">Register</button>
+    </div>
+
+    <div class="card">
+        <h2 style="color:#2f6690;">Digital Marketing Mastery</h2>
+        <p><b>Instructor:</b> Pradeep Kumar</p>
+        <p><b>Duration:</b> 2 Days</p>
+        <p><b>Level:</b> All Levels</p>
+        <button onclick="registerWorkshop('Digital Marketing Mastery')">Register</button>
+    </div>
+
+</div>
+
+<script>
+function registerWorkshop(title) {
+    localStorage.setItem("latestWorkshop", title);
+    localStorage.setItem("latestWorkshopTime", new Date().toLocaleString());
+    alert("Successfully registered for: " + title);
+}
+</script>
+
+</body>
+</html>

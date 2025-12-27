@@ -1,0 +1,223 @@
+<!-- FEDF-PS38 | EduWebinars Platform | Created by Team: P. Sharan Teja, Ch. Naveen, B. Jeevan Sai | Guided by Dr. Vara Prasad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | EduWebinars Platform</title>
+
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f5fb;
+    color: #1f2d3d;
+  }
+
+  /* HEADER STYLING */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #3a7ca5;
+    color: white;
+    padding: 15px 40px;
+    border-bottom: 4px solid #003049;
+    border-radius: 0 0 15px 15px;
+  }
+
+  header img {
+    height: 75px;
+    border-radius: 10px;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+  }
+
+  header p {
+    margin: 5px 0 0;
+    font-style: italic;
+    font-size: 1.1em;
+  }
+
+  /* NAVIGATION BAR */
+  nav {
+    background-color: #2f6690;
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #f0f5fb;
+    color: #2f6690;
+  }
+
+  /* MAIN SECTION */
+  section {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  h2, h3 {
+    color: #003049;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  ul {
+    list-style-type: square;
+    line-height: 1.8;
+    font-size: 1.05em;
+    margin-left: 50px;
+  }
+
+  .sub-section {
+    margin-bottom: 35px;
+    padding: 20px;
+    border-left: 6px solid #3a7ca5;
+    background-color: #f8fbff;
+    border-radius: 10px;
+  }
+
+  .team, .mentor {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .team ul {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .logo-section {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .logo-section img {
+    height: 110px;
+    border-radius: 10px;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: #2f6690;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 4px solid #3a7ca5;
+    border-radius: 20px 20px 0 0;
+    margin-top: 40px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div style="text-align: center;">
+    <h1>EduWebinars Platform</h1>
+    <p>Learn, Engage, and Grow with Online Webinars & Workshops</p>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="webinars.html">Webinars</a>
+  <a href="workshops.html">Workshops</a>
+  <a href="register.html">Register</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html" onclick="alert('Logged out successfully!')">Logout</a>
+</nav>
+
+<!-- ABOUT PAGE CONTENT -->
+<section>
+  <!-- Project Overview -->
+  <div class="logo-section">
+    <img src="logo.png" alt="KL University Logo">
+    <h2>FEDF-PS38: Web-Based Platform for Educational Webinars and Workshops</h2>
+  </div>
+
+  <div class="sub-section">
+    <h3>📘 Project Overview</h3>
+    <p>
+      The <strong>EduWebinars Platform</strong> is a comprehensive web-based system that enables students to explore, 
+      register for, and engage in various educational webinars and workshops. It aims to bridge the gap between learners 
+      and educators through a simple, accessible, and interactive digital platform.
+    </p>
+    <p>
+      The system provides a dashboard for tracking registered events, upcoming sessions, and messages sent via contact forms — 
+      all powered by HTML, CSS, and JavaScript-based features.
+    </p>
+  </div>
+
+  <!-- Technical Details -->
+  <div class="sub-section">
+    <h3>💻 Technologies Used</h3>
+    <ul>
+      <li><b>HTML</b> — for the overall structure and content organization of the platform.</li>
+      <li><b>CSS</b> — for styling, color coordination, and responsive page design.</li>
+      <li><b>JavaScript</b> — for form validation, interactivity, and dashboard data management using localStorage.</li>
+    </ul>
+  </div>
+
+  <!-- Team Details -->
+  <div class="sub-section">
+    <h3>👨‍💻 Project Team Members</h3>
+    <div class="team">
+      <ul>
+        <li style="color: #3a7ca5;"><b>B. Jeevan Sai  (*TEAM LEAD*)</b></li>
+        <li><b>P. Sharan Teja</b></li>
+        <li><b>Ch. Naveen</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mentor Information -->
+  <div class="sub-section">
+    <h3>🎓 Guided By</h3>
+    <div class="mentor">
+      <p><strong>Dr. Vara Prasad</strong><br>
+      Department of Computer Science<br>
+      KL University</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 EduWebinars Platform | Developed by Team (P. Sharan Teja, Ch. Naveen, B. Jeevan Sai) | Guided by Dr. Vara Prasad | KL University
+</footer>
+
+</body>
+</html>

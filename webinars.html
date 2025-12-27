@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Webinars | EduWebinars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body { font-family: 'Segoe UI', Arial; background:#f0f5fb; margin:0; color:#1f2d3d; }
+
+    header {
+        background:#3a7ca5;
+        color:white;
+        text-align:center;
+        padding:20px;
+        border-bottom:4px solid #2f6690;
+        border-radius:0 0 18px 18px;
+        position:relative;
+    }
+
+    header img {
+        height:65px;
+        position:absolute;
+        left:20px;
+        top:50%;
+        transform:translateY(-50%);
+        border-radius:8px;
+    }
+
+    nav {
+        background:#2f6690;
+        text-align:center;
+        padding:12px;
+    }
+
+    nav a {
+        text-decoration:none;
+        color:white;
+        padding:10px 18px;
+        font-weight:bold;
+        display:inline-block;
+        border-radius:8px;
+        margin:2px;
+    }
+
+    nav a:hover {
+        background:white;
+        color:#2f6690;
+    }
+
+    .wrap {
+        max-width:900px;
+        margin:30px auto;
+        padding:0 18px;
+    }
+
+    .card {
+        background:white;
+        border:1px solid #e3e6ea;
+        border-radius:12px;
+        padding:20px;
+        margin-bottom:18px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    button {
+        background:#3a7ca5;
+        color:white;
+        border:none;
+        padding:8px 14px;
+        border-radius:8px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+
+    button:hover {
+        background:#2f6690;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="KL Logo">
+    <h1>EduWebinars — Webinars</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="webinars.html">Webinars</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="wrap">
+
+    <div class="card">
+        <h2 style="color:#2f6690;">Introduction to Artificial Intelligence</h2>
+        <p><b>Speaker:</b> Dr. Srinivas</p>
+        <p><b>Date:</b> 22 November 2025</p>
+        <p><b>Time:</b> 3:00 PM – 4:30 PM IST</p>
+        <button onclick="registerWebinar('Introduction to Artificial Intelligence')">Register</button>
+    </div>
+
+    <div class="card">
+        <h2 style="color:#2f6690;">Advanced Python Techniques</h2>
+        <p><b>Speaker:</b> Ms. Neha</p>
+        <p><b>Date:</b> 24 November 2025</p>
+        <p><b>Time:</b> 5:00 PM – 6:00 PM IST</p>
+        <button onclick="registerWebinar('Advanced Python Techniques')">Register</button>
+    </div>
+
+    <div class="card">
+        <h2 style="color:#2f6690;">AI for Data Analytics</h2>
+        <p><b>Speaker:</b> Mr. Ramesh</p>
+        <p><b>Date:</b> 28 November 2025</p>
+        <p><b>Time:</b> 6:00 PM – 7:00 PM IST</p>
+        <button onclick="registerWebinar('AI for Data Analytics')">Register</button>
+    </div>
+
+</div>
+
+<script>
+function registerWebinar(title) {
+    localStorage.setItem("latestWebinar", title);
+    localStorage.setItem("latestWebinarTime", new Date().toLocaleString());
+    alert("Successfully registered for: " + title);
+}
+</script>
+
+</body>
+</html>
