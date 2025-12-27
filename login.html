@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EduWebinars Login</title>
+
+<script>
+function loginUser() {
+
+  var u = document.getElementById("user").value;
+  var p = document.getElementById("pass").value;
+
+  // LOGIN USERS
+  if (u == "kluniversity" && p == "admin@123") {
+    alert("Login Successful!");
+    window.location.href = "index.html";
+    return false;
+  }
+
+  if (u == "Sharan" && p == "klu2500032333") {
+    alert("Login Successful!");
+    window.location.href = "index.html";
+    return false;
+  }
+
+  if (u == "Naveen" && p == "klu2500031878") {
+    alert("Login Successful!");
+    window.location.href = "index.html";
+    return false;
+  }
+
+  if (u == "Jeevan" && p == "klu2500032098") {
+    alert("Login Successful!");
+    window.location.href = "index.html";
+    return false;
+  }
+
+  // WRONG LOGIN
+  alert("Invalid username or password!");
+  return false;
+}
+</script>
+
+  <style>
+    body {
+      text-align: center;
+      background-color: #f0f5fb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+    }
+
+    marquee {
+      background-color: #1be655;
+      color: white;
+      font-size: xx-large;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #2f6690;
+    }
+
+    h2 {
+      background-color: white;
+      font-size: x-large;
+      display: inline-block;
+      padding: 10px 25px;
+      border: 2px solid #d0e4f5;
+      border-radius: 10px;
+      color: #2f6690;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+      border: 2px solid #d0e4f5;
+      border-radius: 12px;
+      display: inline-block;
+      background-color: #ffffff;
+      padding: 30px 40px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    label {
+      font-weight: bold;
+      color: #2f6690;
+      font-size: 1.1em;
+    }
+
+    input[type="text"], input[type="password"] {
+      border-radius: 6px;
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccd9e3;
+      margin-top: 8px;
+      margin-bottom: 18px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      background-color: #3a7ca5;
+      color: white;
+      font-size: 1.1em;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #25597a;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #3cdd34;
+      color: white;
+      padding: 10px;
+      margin-top: 50px;
+      border-top: 3px solid #25597a;
+      border-radius: 15px 15px 0 0;
+    }
+  </style>
+</head>
+
+<body>
+  <marquee>Welcome to EduWebinars Platform - Login Page</marquee>
+
+  <h2>Login to Your Account</h2>
+
+  <form onsubmit="return loginUser()">
+    <fieldset>
+      <label for="username">Username:</label><br>
+      <input type="text" id="user" placeholder="Enter Username"><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="pass" placeholder="Enter Password"><br><br>
+
+      <input type="submit" value="LOGIN">
+    </fieldset>
+  </form>
+
+  <footer>
+    &copy; 2025 EduWebinars Platform | Designed for FEDF-PS38 Project
+  </footer>
+</body>
+</html>
